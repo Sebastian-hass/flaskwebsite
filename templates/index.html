@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jessica Servín - Agente inmobiliaria</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='icons/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='icons/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='icons/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='icons/site.webmanifest') }}">
+</head>
+<body>
+    <header>
+        <figure class="logo">
+            <img src="{{ url_for('static', filename='Imagenes/logo.png') }}" alt="Logo">
+        </figure>
+        <div class="nav-container">
+            <button id="menuButton">☰ MENÚ</button>
+            <nav id="navMenu" class="hidden">
+                <a href="/">Principal</a>
+                <a href="/sobremi">Sobre mí</a>
+                <a href="/requisitos">Requisitos para buscarte tu casa</a>
+                <a href="/contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+        <section class="slider">
+            <div class="list">
+                <div class="item active">
+                    <div class="image" style="--url: url('{{ url_for('static', filename='Imagenes/image1.jpeg') }}');"></div>
+                    <div class="content">
+                        <h2>Soy Jessica Servín</h2>
+                        <p>Me dedico a encontrarte la casa adecuada por el precio mensual de tu alquiler!</p>
+                        <a href="https://wa.me/+5959853888461" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
+                            Contactame por WhatsApp
+                        </a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="image" style="--url: url('{{ url_for('static', filename='Imagenes/image3.jpeg') }}');"></div>
+                    <div class="content">
+                        <h2>Soy Jessica Servín</h2>
+                        <p>Me dedico a encontrarte la casa adecuada por el precio mensual de tu alquiler!</p>
+                        <a href="https://wa.me/+5959853888461" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
+                            Contactame por WhatsApp
+                        </a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="image" style="--url: url('{{ url_for('static', filename='Imagenes/image2.jpeg') }}');"></div>
+                    <div class="content">
+                        <h2>Soy Jessica Servín</h2>
+                        <p>Me dedico a encontrarte la casa adecuada por el precio mensual de tu alquiler!</p>
+                        <a href="https://wa.me/+5959853888461" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
+                            Contactame por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="arrows">
+                <button id="prev">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
+                    </svg>                          
+                </button>
+                <button id="next">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4"/>
+                    </svg>                          
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Nueva sección Beneficios -->
+    <section class="beneficios" id="beneficios">
+    <h2>Ventajas Exclusivas de Inversiones Paraguay</h2>
+        <div class="beneficio">
+            <h3>Estrategia de Inversión Inteligente</h3>
+            <p>Transformamos su pago mensual de alquiler en una inversión estratégica hacia la propiedad. Con nuestro modelo financiero, usted adquiere su vivienda propia en un plazo de 10 a 12 años, convirtiendo un gasto en un activo valioso.</p>
+        </div>
+        <div class="beneficio">
+            <h3>Seguridad y Previsibilidad Financiera</h3>
+            <p>Proteja su economía familiar de las fluctuaciones del mercado de alquileres. Nuestros planes de cuotas fijas le brindan estabilidad presupuestaria y la tranquilidad de saber que cada pago lo acerca más a ser propietario.</p>
+        </div>
+        <div class="beneficio">
+            <h3>Consultoría Inmobiliaria Especializada</h3>
+            <p>Nuestro equipo de expertos en Inversiones Paraguay le ofrece asesoramiento integral y personalizado. Analizamos sus necesidades específicas para encontrar la propiedad ideal que se ajuste perfectamente a su perfil y capacidad de inversión.</p>
+        </div>
+        <div class="beneficio">
+            <h3>Construcción de Patrimonio Generacional</h3>
+            <p>Invierta en el futuro de su familia creando un legado tangible. La propiedad inmobiliaria que adquiera con nosotros se convertirá en un patrimonio sólido que podrá transmitir a las próximas generaciones, garantizando estabilidad económica a largo plazo.</p>
+        </div>
+        <div class="beneficio">
+            <h3>Servicio Integral de Construcción</h3>
+            <p>¿Ya cuenta con un terreno propio? Inversiones Paraguay también ofrece servicios de construcción personalizada en su propiedad. Diseñamos y construimos la casa de sus sueños adaptada a sus necesidades específicas, con la misma modalidad de financiamiento accesible que caracteriza nuestros servicios.</p>
+        </div>
+         <!-- Botón para redirigir a la página de requisitos -->
+         <a href="requisitos.html" class="start-button">¿Comenzamos a buscarte tu casa ideal?</a>
+    </section>
+
+    <script src="{{ url_for('static', filename='app2.js') }}"></script>
+</body>
+</html>

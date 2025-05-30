@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisitos - Jessica Servín - Agente inmobiliaria</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='icons/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='icons/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='icons/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='icons/site.webmanifest') }}">
+</head>
+<body>
+    <main class="requisitos1">
+        <header>
+            <figure class="logo">
+                <img src="{{ url_for('static', filename='Imagenes/logo.png') }}" alt="Logo Inversiones Paraguay">
+            </figure>
+            <div class="nav-container">
+                <button id="menuButton">☰ MENÚ</button>
+                <nav id="navMenu" class="hidden">
+                    <a href="/">Principal</a>
+                    <a href="/sobremi">Sobre mí</a>
+                    <a href="/requisitos">Requisitos para buscarte tu casa</a>
+                    <a href="/contacto">Contacto</a>
+                </nav>
+            </div>
+        </header>
+
+        <section class="requisitos">
+            <h2>Requisitos para buscarte tu casa</h2>
+            <form action="/enviar" method="POST" enctype="multipart/form-data">
+                <label for="name">Nombre Completo:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Número de Teléfono:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="age">¿Qué edad tienes?</label>
+                <input type="number" id="age" name="age" required>
+
+                <label for="antiguedad">Antigüedad laboral:</label>
+                <input type="text" id="antiguedad" name="antiguedad" required><br><br>
+
+                <label>¿Tiene IPS, IVA, F. Público, todos o ninguno?</label><br>
+                <input type="checkbox" id="ips" name="seguro" value="ips">
+                <label for="ips">IPS</label>
+                <input type="file" id="ips_doc" name="ips_doc" class="hidden"><br>
+                
+                <input type="checkbox" id="iva" name="seguro" value="iva">
+                <label for="iva">IVA</label>
+                <input type="file" id="iva_doc" name="iva_doc" class="hidden"><br>
+                
+                <input type="checkbox" id="fpublico" name="seguro" value="fpublico">
+                <label for="fpublico">F. Público</label>
+                <input type="file" id="fpublico_doc" name="fpublico_doc" class="hidden"><br>
+                
+                <input type="checkbox" id="todos" name="seguro" value="todos">
+                <label for="todos">Todos</label>
+                <input type="file" id="todos_doc" name="todos_doc" class="hidden"><br>
+                
+                <input type="checkbox" id="ninguno" name="seguro" value="ninguno">
+                <label for="ninguno">Ninguno</label><br><br>
+        
+                <label for="estado_civil">Estado civil:</label>
+                <select id="estado_civil" name="estado_civil" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="soltero">Soltero/a</option>
+                    <option value="casado">Casado/a</option>
+                    <option value="divorciado">Divorciado/a</option>
+                    <option value="viudo">Viudo/a</option>
+                </select><br><br>
+        
+                <label for="en_pareja">¿En Pareja?</label>
+                <input type="radio" id="pareja_si" name="en_pareja" value="si" required>
+                <label for="pareja_si">Sí</label>
+                <input type="radio" id="pareja_no" name="en_pareja" value="no" required>
+                <label for="pareja_no">No</label><br><br>
+        
+                <label for="cedula">Número de Cédula:</label>
+                <input type="text" id="cedula" name="cedula" required><br><br>
+        
+        
+                <label for="income">Ingresos Mensuales:</label>
+                <input type="text" id="income" name="income" required>
+
+                <label for="message">¿Alguna duda en especifico?:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+    <script src="{{ url_for('static', filename='app2.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const checkboxes = ['ips', 'iva', 'fpublico', 'todos'];
+        
+            checkboxes.forEach(id => {
+                const checkbox = document.getElementById(id);
+                const fileInput = document.getElementById(id + '_doc');
+            
+                checkbox.addEventListener('change', () => {
+                    if (checkbox.checked) {
+                        fileInput.classList.remove('hidden');
+                    } else {
+                        fileInput.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mí - Jessica Servín - Agente inmobiliaria</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='icons/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='icons/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='icons/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='icons/site.webmanifest') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <figure class="logo">
+            <img src="{{ url_for('static', filename='Imagenes/logo.png') }}" alt="Logo">
+        </figure>
+        <div class="nav-container">
+            <button id="menuButton">☰ MENÚ</button>
+            <nav id="navMenu" class="hidden">
+                <a href="/">Principal</a>
+                <a href="/sobremi">Sobre mí</a>
+                <a href="/requisitos">Requisitos para buscarte tu casa</a>
+                <a href="/contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="header">
+        <figure class="seller image">
+            <img src="{{ url_for('static', filename='Imagenes/background_image_jesicaWebsite.jpg') }}" alt="Imagen de Jesssica Servín Agente inmobiliario paraguay">
+        </figure>
+        <h1>Jessica Servín - Agente inmobiliaria</h1>
+    </section>
+    <main id="sobremi">
+        <section class="sobre-mi">
+            <h2>Sobre Mí</h2>
+            <p>Soy Jessica Servín, asesora inmobiliaria con dos decadas de trayectoria en el sector. Mi especialidad radica en guiar a las familias hacia la adquisición de su propio hogar, ofreciéndoles planes de financiamiento que se ajustan a lo que actualmente destinan para el alquiler. A través de esta metodología, mis clientes logran convertirse en propietarios en un plazo de 10 a 12 años.</p>
+            <p>Mi compromiso se centra en simplificar el proceso de compra de vivienda, proporcionando consultoría especializada y estrategias personalizadas que se adaptan a las necesidades específicas de cada familia.</p>
+        </section>
+        <section class="carrusel">
+            <div class="carrusel-container">
+                <img src="{{ url_for('static', filename='Imagenes/image1.jpeg') }}" alt="Caso de exito - casa vendida y entregada">
+                <img src="{{ url_for('static', filename='Imagenes/image2.jpeg') }}" alt="Caso de exito 2 - casa vendida y entregada">
+            </div>
+        </section>
+        <section class="beneficios" id="beneficios">
+            <a href="requisitos.html" class="start-button">¿Empezamos a buscarte tu casa?</a>
+        </section>
+    </main>
+    <section class="footer">
+        <p>&copy; 2024 Jessica Servín. Todos los derechos reservados.</p>
+    </section>
+    <script src="{{ url_for('static', filename='app2.js') }}"></script>
+</body>
+</html>

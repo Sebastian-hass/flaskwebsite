@@ -1,0 +1,808 @@
+@import url('https://fonts.cdnfonts.com/css/bebas-neue');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+
+:root {
+    --with-df: min(1200px, 90vw);
+    --diameter: 500px;
+}
+
+body {
+    margin: 0;
+    font-size: 15px;
+    background-color: darkslategray;
+    font-family: 'Poppins', sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    width: var(--with-df);
+    height: 70px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.logo img {
+    max-height: 70px;
+    width: auto;
+    border-radius: 50%;
+}
+
+.nav-container {
+    position: relative;
+}
+
+#menuButton {
+    background-color: rgba(41, 114, 64, 0);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+}
+
+nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #f1f1f1;
+    width: 250px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.3s, visibility 0.3s;
+    opacity: 1;
+    visibility: visible;
+    z-index: 3;
+}
+
+nav.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+nav > a {
+    color: #333;
+    text-decoration: none;
+    padding: 15px;
+    transition: background-color 0.3s;
+}
+
+nav > a:hover {
+    background-color: #ddd;
+}
+
+.whatsapp-button {
+    display: inline-block;
+    background-color: #2a9f06;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.whatsapp-button:hover {
+    background-color: #086600;
+}
+
+.slider {
+    color: #eee;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    margin-top: -70px;
+    position: relative;
+    z-index: 1;
+}
+
+.slider .list {
+    position: relative;
+    height: 100%;
+}
+
+.slider .list .item {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider .list .item .content {
+    position: absolute;
+    top: 20%;
+    width: 80%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-family: Poppins;
+    text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+}
+
+.slider .list .item .content h2 {
+    font-size: 10em;
+    font-family: 'Bebas Neue';
+    line-height: 1em;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.slider .list .content a {
+    display: flex;
+    align-items: center;
+    padding-bottom: 25px;
+    padding-right: 20px;
+    margin-left: auto;
+    background-color: rgba(0, 137, 14, 0.375);
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.slider .list .content a:hover {
+    background-color: rgba(4, 124, 0, 0.37);
+}
+
+.slider .list .image {
+    flex-shrink: 0;
+    width: var(--diameter);
+    height: var(--diameter);
+    background-image: var(--url);
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    position: relative;
+}
+
+.slider .list .item .image::before,
+.slider .list .item .image::after {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    content: '';
+    border-radius: 50%;
+    background-image: 
+     linear-gradient(to right, #0004, #0004),
+     var(--url);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-position: center;
+    background-size: var(--diameter) var(--diameter);
+}
+
+.slider .list .item .image::after {
+    width: 30%;
+    height: 30%;
+    background-image: var(--url);
+}
+
+/* Animation */
+.slider .list .content h2 {
+    transform: translateY(-100%);
+    transition: transform 1s;
+}
+
+.slider .list .item .image {
+    transform: rotate(-60deg);
+    filter: blur(30px);
+    transition: 1s;
+}
+
+.slider .list .item .image::before {
+    transform: translate(-50%, -50%) rotate(-130deg);
+    transition: transform 1.2s;
+}
+
+.slider .list .item .image::after {
+    transform: translate(-50%, -50%) rotate(-180deg);
+    transition: transform 1.2s;
+}
+
+.slider .list .item {
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+/* Active item */
+.slider .list .item.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.slider .list .item.active .content h2 {
+    transform: translateY(0);
+    z-index: 1;
+}
+
+.slider .list .item.active .image {
+    transform: rotate(0);
+    filter: blur(0);
+}
+
+.slider .list .item.active .image::before,
+.slider .list .item.active .image::after {
+    transform: translate(-50%, -50%) rotate(0);
+}
+
+/* Item after active item */
+.slider .list .item.active ~ .item {
+    opacity: 0;
+}
+
+.slider .list .item.active ~ .item .content h2 {
+    transform: translateY(-100%);
+}
+
+.slider .list .item.active ~ .item .image {
+    transform: rotate(60deg);
+    filter: blur(30px);
+}
+
+.slider .list .item.active ~ .item .image::before {
+    transform: translate(-50%, -50%) rotate(130deg);
+}
+
+.slider .list .item.active ~ .item .image::after {
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+/* Arrows */
+.arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.arrows button {
+    all: unset;
+    cursor: pointer;
+}
+
+.slider .list::after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(420px, 70vw);
+    background-image: url(Imagenes/nobg_jesica.png);
+    height: 70%;
+    background-size: cover;
+    background-position: top;
+    pointer-events: none;
+    animation: showModel 1s ease-in-out 1 forwards;
+}
+
+@keyframes showModel {
+    from {
+        transform: translateX(-50%) scale(1.5) translateY(88px);
+    }
+}
+
+/* Sección Beneficios */
+.beneficios {
+    padding: 50px 20px;
+    background-color: #fff;
+    color: #333;
+}
+
+.beneficios h2 {
+    font-size: Poppins;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+.beneficio {
+    font-size: Poppins;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+.beneficio:hover{
+    transform: scale(1.1);
+}
+
+.beneficio h3 {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.beneficio p {
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+/* Estilo del botón debajo de beneficios */
+.start-button {
+    display: inline-block;
+    background-color: #2a9f06; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Texto en negrita */
+    transition: background-color 0.3s; /* Transición suave para efectos hover */
+    margin-top: 20px; /* Espaciado superior */
+    text-align: center; /* Centrar el texto dentro del botón */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.start-button:hover {
+    background-color: #086600; /* Fondo más oscuro al pasar el ratón */
+}
+
+/* Estilo de la sección de beneficios */
+.beneficios {
+    text-align: center; /* Centrar contenido de la sección */
+    margin: 0 auto; /* Centrar la sección en la página */
+    padding: 20px; /* Espaciado interno */
+    background-color: #f4f4f4; /* Fondo gris suave */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.beneficios h2 {
+    margin-bottom: 20px; /* Espaciado inferior */
+    color: #333; /* Color del texto */
+}
+
+.beneficios p {
+    margin-bottom: 20px; /* Espaciado inferior */
+    color: #666; /* Color del texto */
+    line-height: 1.6; /* Altura de línea para mejorar legibilidad */
+}
+
+/*Estilo de la sección sobre mi*/
+.header {
+    margin-top: -70px;
+    background-image: url('Imagenes/imagen-header-sobremi.jpeg'); /* Ruta a tu imagen de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el header */
+    background-position: center; /* Centra la imagen */
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: relative; /* Necesario para el overlay */
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Añade un overlay oscuro para mejorar la legibilidad del texto */
+}
+
+.header h1, .seller.image {
+    position: relative; /* Asegura que el texto y la imagen del vendedor estén por encima del overlay */
+    z-index: 1;
+}
+
+.seller.image img {
+    height: 80px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.seller.image img:hover {
+    transform: scale(1.1);
+}
+
+#sobremi{
+    padding: 20px;
+    background-color: #fff;
+    transition: background-color 0.5s ease;
+}
+
+.sobre-mi {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+
+.sobre-mi h2 {
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.sobre-mi p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.sobre-mi:hover {
+    transform: translateY(-10px);
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    transition: background-color 0.5s ease;
+}
+
+.footer:hover {
+    background-color: #444;
+}
+
+.carrusel {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.carrusel-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.carrusel-container img {
+    width: 48%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.carrusel-container img:hover {
+    transform: scale(1.02);
+}
+
+/* Media query para pantallas móviles */
+@media (max-width: 768px) {
+    .carrusel {
+        padding: 0 10px;
+    }
+    
+    .carrusel-container {
+        gap: 10px;
+    }
+    
+    .carrusel-container img {
+        width: 48%;
+    }
+}
+
+/* Estilo de la sección de requisitos */
+.requisitos1{
+    background-image: url(Imagenes/1.jpg);
+    background-size: 100% 100%;
+    background-position: center;
+}
+.requisitos {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.requisitos h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.requisitos form {
+    display: flex;
+    flex-direction: column;
+}
+
+.requisitos label {
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.requisitos input,
+.requisitos textarea,
+.requisitos select {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.requisitos input[type="checkbox"],
+.requisitos input[type="radio"] {
+    margin-right: 5px;
+    margin-bottom: 0;
+}
+
+.requisitos input[type="file"] {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.requisitos input[type="file"]::-webkit-file-upload-button {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px 10px;
+    color: #666;
+    cursor: pointer;
+}
+
+.requisitos input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: #e0e0e0;
+}
+
+.requisitos select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 98%;
+    background-position-y: 50%;
+}
+
+.requisitos button {
+    background-color: #2a9f06;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.requisitos button:hover {
+    background-color: #086600;
+}
+
+/* Estilos para los nuevos elementos */
+.requisitos input[type="checkbox"] + label,
+.requisitos input[type="radio"] + label {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.requisitos .hidden {
+    display: none;
+}
+
+/* Estilo para agrupar opciones relacionadas */
+.requisitos .option-group {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.requisitos .option-group legend {
+    padding: 0 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .requisitos {
+        padding: 15px;
+    }
+
+    .requisitos input,
+    .requisitos textarea,
+    .requisitos select,
+    .requisitos input[type="file"] {
+        font-size: 16px; /* Mejor para dispositivos móviles */
+    }
+}
+ 
+/*Estilo de la sección contactos*/
+.background-carousel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    display: flex;
+    transition: transform 1s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    background-image: var(--url);
+    background-size: cover;
+    background-position: center;
+}
+
+.contacto {
+    margin-top: -70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente para mejorar la legibilidad */
+}
+
+.agradecimiento h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.agradecimiento p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+.redes-sociales {
+    display: flex;
+    gap: 20px;
+}
+
+.redes-sociales a {
+    color: white;
+    font-size: 2em;
+    transition: color 0.3s;
+}
+
+.redes-sociales a:hover {
+    color: #4de361; /* Cambia el color al pasar el ratón */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header {
+        background-color: #f0f0f000; /* Fondo sólido para el header en dispositivos móviles */
+    }
+
+    .slider {
+        height: calc(100vh - 70px); /* Ajustar la altura del slider en móviles restando la altura del header */
+    }
+
+    .slider .list::after {
+        height: 50%; /* Ajustar la altura de la imagen en pantallas más pequeñas */
+    }
+
+    .slider .list .item .content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .slider .list .item .content h2 {
+        font-size: 4em;
+    }
+
+    .slider .list .item .content a {
+        font-size: 0.7em;
+        padding: 5px 10px;
+    }
+
+    .beneficios {
+        padding: 20px 10px;
+    }
+
+    .beneficios h2 {
+        font-size: 1.8em;
+    }
+
+    .beneficio {
+        padding: 10px;
+    }
+
+    .beneficio h3 {
+        font-size: 1.2em;
+    }
+
+    .beneficio p {
+        font-size: 1em;
+    }
+
+    .requisitos {
+        padding: 15px;
+    }
+
+    .requisitos h2 {
+        font-size: 1.5em;
+    }
+
+    .requisitos input,
+    .requisitos textarea,
+    .requisitos select,
+    .requisitos input[type="file"] {
+        font-size: 14px;
+    }
+
+    .footer {
+        padding: 10px 5px;
+        font-size: 0.8em;
+    }
+}
+
+/* Estilos para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .slider .list .item .content h2 {
+        font-size: 3em;
+    }
+
+    .slider .list .item .content a {
+        font-size: 0.6em;
+        padding: 4px 8px;
+    }
+
+    .beneficios h2 {
+        font-size: 1.5em;
+    }
+
+    .beneficio {
+        padding: 8px;
+    }
+
+    .beneficio h3 {
+        font-size: 1em;
+    }
+
+    .beneficio p {
+        font-size: 0.9em;
+    }
+
+    .requisitos h2 {
+        font-size: 1.2em;
+    }
+
+    .requisitos input,
+    .requisitos textarea,
+    .requisitos select,
+    .requisitos input[type="file"] {
+        font-size: 12px;
+    }
+
+    .footer {
+        font-size: 0.7em;
+    }
+}

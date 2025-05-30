@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Jessica Servín - Agente inmobiliaria</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='icons/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='icons/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='icons/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='icons/site.webmanifest') }}">
+</head>
+<body>
+    <header>
+            <figure class="logo">
+                <img src="{{ url_for('static', filename='Imagenes/logo.png') }}" alt="Logo Inversiones Paraguay">
+            </figure>
+            <div class="nav-container">
+                <button id="menuButton">☰ MENÚ</button>
+                <nav id="navMenu" class="hidden">
+                    <a href="/">Principal</a>
+                    <a href="/sobremi">Sobre mí</a>
+                    <a href="/requisitos">Requisitos para buscarte tu casa</a>
+                    <a href="/contacto">Contacto</a>
+                </nav>
+            </div>
+        </header>
+
+
+    <div class="background-carousel">
+        <div class="carousel-slide" style="--url: url('{{ url_for('static', filename='Imagenes/image1.jpeg') }}');"></div>
+        <div class="carousel-slide" style="--url: url('{{ url_for('static', filename='Imagenes/image2.jpeg') }}');"></div>
+        <div class="carousel-slide" style="--url: url('{{ url_for('static', filename='Imagenes/image3.jpeg') }}');"></div>
+    </div>
+
+
+
+    <main class="contacto">
+        <section class="agradecimiento">
+            <h1>¡Hagamos relidad tu casa soñada!</h1>
+            <p>Gracias por confiar en Inversiones Paraguay. Estamos listos para convertir tu sueño en realidad. ¡Contáctanos y comencemos juntos este emocionante camino hacia tu hogar!</p>
+        </section>
+        
+
+        <section class="redes-sociales">
+            <a href="https://www.tiktok.com/@jessicaservinpy?_t=ZM-8wl6DF0CWQw&_r=1" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://wa.me/+5959853888461" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.instagram.com/jessicaservinpy?igsh=MW03a3VnZWI2enE4Yg==" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='app2.js') }}"></script>
+</body>
+</html>
