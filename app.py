@@ -96,6 +96,3 @@ def enviar():
 @app.route('/gracias')
 def gracias():
     return render_template("gracias.html")
-
-if __name__ == '__main__':
-    app.run(port=8000)
